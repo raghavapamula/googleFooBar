@@ -1,0 +1,15 @@
+def answer(n):
+    # your code here
+    n = int(n)
+    queue = [(n,0)]
+    while(True):
+        temp, steps = queue.pop(0)
+        if(temp == 1):
+            return steps
+        if(temp%2 == 0):
+            queue.append((temp/2,steps+1))
+        else:
+            if(((temp-1)/2)%2 == 0 or temp == 3):
+                queue.append((temp-1,steps+1))
+            elif(((temp+1)/2)%2 == 0):
+                queue.append((temp+1,steps+1))
